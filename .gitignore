@@ -1,0 +1,52 @@
+# ビルド出力
+bin/
+obj/
+
+# ユーザー設定
+*.user
+*.suo
+
+# Visual Studio 関連
+.vs/
+
+# 一時ファイル
+*.log
+*.tmp
+
+# その他
+FileContentIndex/
+v17/
+Log.txt
+
+# Visual Studio build output
+x64/
+[Rr]elease/
+[Dd]ebug/
+*.obj
+*.pdb
+*.exe
+*.ilk
+*.log
+*.tlog
+*.idb
+*.pch
+
+# VS temporary and user-specific files
+*.user
+*.suo
+*.vcxproj.user
+*.opensdf
+*.sdf
+*.ipch
+
+# その他ビルド生成物
+*.cache
+*.db
+*.opendb
+*.VC.db
+
+# Application logs
+*.log
+*.txt
+Log.txt
+/enc_temp_folder

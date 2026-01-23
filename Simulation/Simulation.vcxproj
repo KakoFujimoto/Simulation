@@ -23,12 +23,15 @@
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\System\GameManager.cpp" />
+    <ClCompile Include="src\System\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\GameManager.h" />
+    <ClInclude Include="src\System\Input.h" />
+    <ClInclude Include="src\UI\GameKey.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

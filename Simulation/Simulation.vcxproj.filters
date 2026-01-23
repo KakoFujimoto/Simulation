@@ -24,7 +24,10 @@
     <ClCompile Include="src\Scene\SceneManager.cpp">
       <Filter>src\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\Scene\TitleScene.cpp" />
+    <ClCompile Include="src\Scene\TitleScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameManager.h">
@@ -36,6 +39,10 @@
     <ClInclude Include="src\Scene\SceneManager.h">
       <Filter>src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\Scene\TitleScene.h" />
+    <ClInclude Include="src\Scene\TitleScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UI\GameKey.h" />
+    <ClInclude Include="src\System\Input.h" />
   </ItemGroup>
 </Project>

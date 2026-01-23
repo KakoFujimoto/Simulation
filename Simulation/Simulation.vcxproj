@@ -21,7 +21,10 @@
   <ItemGroup>
     <ClCompile Include="src\Graphic\Renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Scene\EndingScene.cpp" />
+    <ClCompile Include="src\Scene\NameInputScene.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
+    <ClCompile Include="src\Scene\StoryScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\System\GameManager.cpp" />
     <ClCompile Include="src\System\Input.cpp" />
@@ -30,8 +33,12 @@
     <ClInclude Include="src\GameConfig.h" />
     <ClInclude Include="src\GameMessage.h" />
     <ClInclude Include="src\Graphic\Renderer.h" />
+    <ClInclude Include="src\Scene\EndingScene.h" />
+    <ClInclude Include="src\Scene\NameInputScene.h" />
     <ClInclude Include="src\Scene\Scene.h" />
+    <ClInclude Include="src\Scene\SceneId.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
+    <ClInclude Include="src\Scene\StoryScene.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\GameManager.h" />
     <ClInclude Include="src\System\Input.h" />

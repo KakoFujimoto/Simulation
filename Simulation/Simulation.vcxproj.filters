@@ -29,6 +29,9 @@
     </ClCompile>
     <ClCompile Include="src\System\Input.cpp" />
     <ClCompile Include="src\Graphic\Renderer.cpp" />
+    <ClCompile Include="src\Scene\EndingScene.cpp" />
+    <ClCompile Include="src\Scene\NameInputScene.cpp" />
+    <ClCompile Include="src\Scene\StoryScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameManager.h">
@@ -48,5 +51,9 @@
     <ClInclude Include="src\Graphic\Renderer.h" />
     <ClInclude Include="src\GameConfig.h" />
     <ClInclude Include="src\GameMessage.h" />
+    <ClInclude Include="src\Scene\SceneId.h" />
+    <ClInclude Include="src\Scene\NameInputScene.h" />
+    <ClInclude Include="src\Scene\StoryScene.h" />
+    <ClInclude Include="src\Scene\EndingScene.h" />
   </ItemGroup>
 </Project>

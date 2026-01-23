@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Graphic\Renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
@@ -26,6 +27,9 @@
     <ClCompile Include="src\System\Input.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameConfig.h" />
+    <ClInclude Include="src\GameMessage.h" />
+    <ClInclude Include="src\Graphic\Renderer.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />

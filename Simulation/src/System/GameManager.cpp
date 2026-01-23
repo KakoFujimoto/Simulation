@@ -12,6 +12,6 @@ void GameManager::update()
 
 void GameManager::draw()
 {
-	sceneManager.draw();
+	sceneManager.draw(renderer);
 }
 

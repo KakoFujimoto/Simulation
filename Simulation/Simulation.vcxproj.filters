@@ -28,6 +28,7 @@
       <Filter>src\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\System\Input.cpp" />
+    <ClCompile Include="src\Graphic\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameManager.h">
@@ -44,5 +45,8 @@
     </ClInclude>
     <ClInclude Include="src\UI\GameKey.h" />
     <ClInclude Include="src\System\Input.h" />
+    <ClInclude Include="src\Graphic\Renderer.h" />
+    <ClInclude Include="src\GameConfig.h" />
+    <ClInclude Include="src\GameMessage.h" />
   </ItemGroup>
 </Project>

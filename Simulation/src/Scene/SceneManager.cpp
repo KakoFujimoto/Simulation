@@ -12,7 +12,7 @@ void SceneManager::update()
 	currentScene_->update();
 }
 
-void SceneManager::draw()
+void SceneManager::draw(Renderer& renderer)
 {
-	currentScene_->draw();
+	currentScene_->draw(renderer);
 }

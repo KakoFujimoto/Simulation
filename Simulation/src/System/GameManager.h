@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Scene/SceneManager.h"
+#include "Graphic/Renderer.h"
 
 class GameManager
 {
@@ -10,4 +11,5 @@ public:
 
 private:
 	SceneManager sceneManager;
+	Renderer renderer;
 };

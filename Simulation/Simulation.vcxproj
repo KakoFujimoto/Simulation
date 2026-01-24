@@ -23,6 +23,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Scene\EndingScene.cpp" />
     <ClCompile Include="src\Scene\NameInputScene.cpp" />
+    <ClCompile Include="src\Scene\Scene.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\StoryScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />

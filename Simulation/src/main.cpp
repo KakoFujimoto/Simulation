@@ -12,6 +12,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     while (ProcessMessage() == 0)
     {
         gm.update();
+        ClearDrawScreen();
         gm.draw();
         ScreenFlip();
     }

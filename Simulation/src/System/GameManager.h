@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Scene/SceneManager.h"
 #include "Graphic/Renderer.h"
+#include "System/Input.h"
 
 class GameManager
 {
@@ -12,4 +13,5 @@ public:
 private:
 	SceneManager sceneManager;
 	Renderer renderer;
+	Input input;
 };

@@ -7,12 +7,13 @@
 
 class Scene;
 class Renderer;
+class Input;
 
 class SceneManager
 {
 public:
 	SceneManager();
-	void update();
+	void update(const Input& input);
 	void draw(Renderer& renderer);
 	void changeScene(SceneId id);
 

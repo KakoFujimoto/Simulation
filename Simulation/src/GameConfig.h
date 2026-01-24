@@ -6,4 +6,9 @@ namespace GameConfig
 	{
 		static constexpr int DisplayPosition = 100;
 	};
+
+	struct NameInputSceneConfig
+	{
+		static constexpr int DisplayPosition = 100;
+	};
 }

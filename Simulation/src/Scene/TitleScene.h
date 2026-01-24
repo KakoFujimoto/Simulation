@@ -4,11 +4,12 @@
 
 
 class Renderer;
+class Input;
 
 class TitleScene : public Scene
 {
 public:
-	void update() override;
+	void update(const Input& input) override;
 	void draw(Renderer& renderer) override;
 
 private:

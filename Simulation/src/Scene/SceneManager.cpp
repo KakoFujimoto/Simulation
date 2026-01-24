@@ -1,14 +1,20 @@
 ﻿#include "SceneManager.h"
 #include "Scene.h"
+#include "System/Input.h"
 
 SceneManager::SceneManager()
 {
 	currentScene_ = &titleScene;
 }
 
-void SceneManager::update()
+void SceneManager::update(const Input& input)
 {
-	currentScene_->update();
+	currentScene_->update(input);
+
+	if (currentScene_->isEnd())
+	{
+		changeScene(SceneId::NameInput);
+	}
 }
 
 void SceneManager::draw(Renderer& renderer)

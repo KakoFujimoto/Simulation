@@ -2,7 +2,7 @@
 #include "Graphic/Renderer.h"
 #include "GameConfig.h"
 #include "GameMessage.h"
-#include "System/Input.h"
+#include "UI/Input.h"
 #include "UI/GameKey.h"
 #include <DxLib.h>
 

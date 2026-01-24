@@ -28,7 +28,8 @@
     <ClCompile Include="src\Scene\StoryScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\System\GameManager.cpp" />
-    <ClCompile Include="src\System\Input.cpp" />
+    <ClCompile Include="src\UI\Input.cpp" />
+    <ClCompile Include="src\UI\TextInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameConfig.h" />
@@ -42,8 +43,9 @@
     <ClInclude Include="src\Scene\StoryScene.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\GameManager.h" />
-    <ClInclude Include="src\System\Input.h" />
+    <ClInclude Include="src\UI\Input.h" />
     <ClInclude Include="src\UI\GameKey.h" />
+    <ClInclude Include="src\UI\TextInput.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -1,6 +1,6 @@
 ﻿#include "SceneManager.h"
 #include "Scene.h"
-#include "System/Input.h"
+#include "UI/Input.h"
 
 SceneManager::SceneManager()
 {

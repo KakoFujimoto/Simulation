@@ -32,3 +32,11 @@ bool TextInput::isDecided() const
 {
 	return CheckKeyInput(handle_) == TRUE;
 }
+
+int TextInput::getTextWidth() const
+{
+	return GetDrawStringWidth(
+		text_.c_str(),
+		static_cast<int>(text_.length())
+	);
+}

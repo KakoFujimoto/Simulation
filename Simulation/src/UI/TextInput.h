@@ -11,6 +11,7 @@ public:
 	void update();
 	const std::string& getText() const;
 	bool isDecided() const;
+	int getTextWidth() const;
 
 private:
 	int handle_;

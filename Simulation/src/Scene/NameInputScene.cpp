@@ -28,6 +28,8 @@ void NameInputScene::update(const Input& input)
 
 void NameInputScene::draw(Renderer& renderer)
 {
+	const std::string& input = textInput_.getText();
+
 	renderer.drawText(
 		displayPosition_,
 		displayPosition_,
@@ -39,6 +41,15 @@ void NameInputScene::draw(Renderer& renderer)
 		displayPositionBelow_,
 		textInput_.getText()
 	);
+
+	int textWidth = textInput_.getTextWidth();
+
+	if ((GetNowCount() / 500) % 2 == 0)
+	{
+		renderer.drawText(displayPosition_ + textWidth,
+			displayPositionBelow_,
+			"|");
+	}
 }
 
 const std::string& NameInputScene::getResultName() const

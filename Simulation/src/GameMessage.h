@@ -10,6 +10,6 @@ namespace GameMessage
 
 	struct NameInputSceneMessage
 	{
-		static constexpr char EnterName[] = "名前を入力してください";
+		static constexpr char EnterName[] = "名前を入力してください(全角8文字以内)";
 	};
 }

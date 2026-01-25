@@ -2,12 +2,12 @@
 
 namespace GameConfig
 {
-	struct TitleSceneConfig
+	namespace TitleSceneConfig
 	{
 		static constexpr int DisplayPosition = 100;
 	};
 
-	struct NameInputSceneConfig
+	namespace NameInputSceneConfig
 	{
 		static constexpr int DisplayPosition = 100;
 		static constexpr int DisplayPositionBelow = 140;

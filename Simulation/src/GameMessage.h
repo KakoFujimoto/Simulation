@@ -3,12 +3,12 @@
 
 namespace GameMessage
 {
-	struct TitleSceneMessage
+	namespace TitleSceneMessage
 	{
 		static constexpr char PressEnter[] = "Press Enter";
 	};
 
-	struct NameInputSceneMessage
+	namespace NameInputSceneMessage
 	{
 		static constexpr char EnterName[] = "名前を入力してください(全角8文字以内)";
 	};

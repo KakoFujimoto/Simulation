@@ -22,7 +22,6 @@
     <ClCompile Include="src\Graphic\Renderer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Scene\EndingScene.cpp" />
-    <ClCompile Include="src\Scene\NameInputScene.cpp" />
     <ClCompile Include="src\Scene\Scene.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\StoryScene.cpp" />
@@ -36,7 +35,6 @@
     <ClInclude Include="src\GameMessage.h" />
     <ClInclude Include="src\Graphic\Renderer.h" />
     <ClInclude Include="src\Scene\EndingScene.h" />
-    <ClInclude Include="src\Scene\NameInputScene.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneId.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />

@@ -10,6 +10,6 @@ public:
 
 private:
 	static constexpr int KeyCount = 256; // DxLib仕様
-	int current[KeyCount];
-	int previous[KeyCount];
+	char current[KeyCount];
+	char previous[KeyCount];
 };

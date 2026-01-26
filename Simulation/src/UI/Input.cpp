@@ -4,11 +4,7 @@
 void Input::update()
 {
 	memcpy(previous, current, sizeof(current));
-
-	for (int i = 0; i < KeyCount; i++)
-	{
-		current[i] = CheckHitKey(i);
-	}
+	GetHitKeyStateAll(current);
 }
 
 bool Input::isPressed(GameKey key) const
@@ -21,6 +17,10 @@ bool Input::isPressed(GameKey key) const
 		return current[KEY_INPUT_DOWN] != 0;
 	case GameKey::Enter:
 		return current[KEY_INPUT_RETURN] != 0;
+	case GameKey::Decide:
+		return current[KEY_INPUT_Z] != 0;
+	case GameKey::Cancel:
+		return current[KEY_INPUT_X] != 0;
 	}
 	return false;
 }
@@ -38,6 +38,12 @@ bool Input::isTriggered(GameKey key) const
 	case GameKey::Enter:
 		return current[KEY_INPUT_RETURN] != 0
 			&& previous[KEY_INPUT_RETURN] == 0;
+	case GameKey::Decide:
+		return current[KEY_INPUT_Z] != 0
+			&& previous[KEY_INPUT_Z] == 0;
+	case GameKey::Cancel:
+		return current[KEY_INPUT_X] != 0
+			&& previous[KEY_INPUT_X] == 0;
 	}
 	return false;
 }

@@ -2,7 +2,9 @@
 
 enum class GameKey
 {
-	Up,
-	Down,
-	Enter
+	 Up
+	,Down
+	,Enter
+	,Decide // Z
+	,Cancel // X
 };

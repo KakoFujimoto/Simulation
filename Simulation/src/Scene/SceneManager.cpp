@@ -13,7 +13,7 @@ void SceneManager::update(const Input& input)
 
 	if (currentScene_->isEnd())
 	{
-		changeScene(SceneId::NameInput);
+		changeScene(SceneId::Story);
 	}
 }
 
@@ -28,9 +28,6 @@ void SceneManager::changeScene(SceneId id)
 	{
 	case SceneId::Title:
 		currentScene_ = &titleScene;
-		break;
-	case SceneId::NameInput:
-		currentScene_ = &nameInputScene;
 		break;
 	case SceneId::Story:
 		currentScene_ = &storyScene;

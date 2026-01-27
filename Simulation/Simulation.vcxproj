@@ -34,11 +34,13 @@
     <ClInclude Include="src\GameConfig.h" />
     <ClInclude Include="src\GameMessage.h" />
     <ClInclude Include="src\Graphic\Renderer.h" />
+    <ClInclude Include="src\Scene\Choice.h" />
     <ClInclude Include="src\Scene\EndingScene.h" />
     <ClInclude Include="src\Scene\Scene.h" />
     <ClInclude Include="src\Scene\SceneId.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Scene\StoryScene.h" />
+    <ClInclude Include="src\Scene\StoryState.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\System\GameManager.h" />
     <ClInclude Include="src\UI\Input.h" />

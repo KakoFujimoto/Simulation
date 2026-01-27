@@ -7,10 +7,10 @@ namespace GameConfig
 		static constexpr int DisplayPosition = 100;
 	};
 
-	namespace NameInputSceneConfig
+	namespace StorySceneConfig
 	{
-		static constexpr int DisplayPosition = 100;
-		static constexpr int DisplayPositionBelow = 140;
-		static constexpr int MaxNameLength = 16;
+		static constexpr int TextMarginLeft = 100;
+		static constexpr int TextMarginTop = 400;
+		static constexpr int NavigationMarginTop = 440;
 	};
 }

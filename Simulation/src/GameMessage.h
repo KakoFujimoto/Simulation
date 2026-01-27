@@ -8,8 +8,8 @@ namespace GameMessage
 		static constexpr char PressEnter[] = "Press Enter";
 	};
 
-	namespace NameInputSceneMessage
+	namespace StorySceneMessage
 	{
-		static constexpr char EnterName[] = "名前を入力してください(全角8文字以内)";
+		static constexpr char NavigationMessage[] = "Zキーで進む";
 	};
 }

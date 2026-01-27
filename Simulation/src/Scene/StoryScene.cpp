@@ -2,6 +2,9 @@
 #include "UI/Input.h"
 #include "UI/GameKey.h"
 #include "Graphic/Renderer.h"
+#include "GameConfig.h"
+#include "GameMessage.h"
+
 
 void StoryScene::onEnter()
 {
@@ -31,14 +34,14 @@ void StoryScene::update(const Input& input)
 void StoryScene::draw(Renderer& renderer)
 {
 	renderer.drawText(
-         100
-        ,400
+        GameConfig::StorySceneConfig::TextMarginLeft
+        ,GameConfig::StorySceneConfig::TextMarginTop
         ,script_[currentLine_]
     );
 
     renderer.drawText(
-         100
-        ,440
-        ,"Zキーで進む"
+        GameConfig::StorySceneConfig::TextMarginLeft
+        ,GameConfig::StorySceneConfig::NavigationMarginTop
+        ,GameMessage::StorySceneMessage::NavigationMessage
     );
 }

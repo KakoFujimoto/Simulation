@@ -3,8 +3,9 @@
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
-    DxLib_Init();
     ChangeWindowMode(TRUE);
+    SetGraphMode(800, 700, 32);
+    DxLib_Init();
 
     GameManager gm;
     gm.initialize();

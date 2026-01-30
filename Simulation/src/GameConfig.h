@@ -11,6 +11,6 @@ namespace GameConfig
 	{
 		static constexpr int TextMarginLeft = 100;
 		static constexpr int TextMarginTop = 400;
-		static constexpr int NavigationMarginTop = 440;
+		static constexpr int NavigationMarginTop = 550;
 	};
 }

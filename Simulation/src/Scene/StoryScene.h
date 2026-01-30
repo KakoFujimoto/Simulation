@@ -19,10 +19,19 @@ public:
 	void draw(Renderer& renderer) override;
 
 private:
+	void advanceStory();
+	bool hasChoice() const;
+
 	StoryState state_ = StoryState::ShowingText;
+
 	int scriptIndex_ = 0;
 	std::vector<std::string> script_;
-	int currentLine_ = 0;
+
+	//int currentLine_ = 0;
+
 	std::array<Choice, 2> choices_;
 	int cursorIndex_ = 0;
+
+	void updateChoosing(const Input& input);
+	void drawChoosing(Renderer& renderer);
 };

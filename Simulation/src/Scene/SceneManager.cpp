@@ -11,9 +11,21 @@ void SceneManager::update(const Input& input)
 {
 	currentScene_->update(input);
 
-	if (currentScene_->isEnd())
+	if (!currentScene_->isEnd())
+	{
+		return;
+	}
+	if (currentScene_ == &titleScene)
 	{
 		changeScene(SceneId::Story);
+	}
+	else if (currentScene_ == &storyScene)
+	{
+		changeScene(SceneId::Ending);
+	}
+	else if (currentScene_ == &endingScene)
+	{
+		changeScene(SceneId::Title);
 	}
 }
 

@@ -27,8 +27,6 @@ private:
 	int scriptIndex_ = 0;
 	std::vector<std::string> script_;
 
-	//int currentLine_ = 0;
-
 	std::array<Choice, 2> choices_;
 	int cursorIndex_ = 0;
 

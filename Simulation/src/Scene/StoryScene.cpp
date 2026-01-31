@@ -8,6 +8,8 @@
 
 void StoryScene::onEnter()
 {
+    Scene::onEnter();
+
     // 仮台本
     script_ = {
         "ここは静かな部屋だ。",

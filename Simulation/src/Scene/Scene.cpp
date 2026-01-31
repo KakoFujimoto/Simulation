@@ -9,3 +9,8 @@ void Scene::end()
 {
 	isEnd_ = true;
 }
+
+void Scene::onEnter()
+{
+	isEnd_ = false;
+};

@@ -10,7 +10,7 @@ public:
 	virtual ~Scene() = default;
 	virtual void update(const Input& input) = 0;
 	virtual void draw(Renderer& renderer) = 0;
-	virtual void onEnter() {};
+	virtual void onEnter();
 	bool isEnd() const;
 
 protected:

@@ -32,6 +32,7 @@ void StoryScene::update(const Input& input)
             {
                 if (hasChoice())
                 {
+                    // TODO:scriptIndex_決め打ちなのはプロトタイプゆえであり、リファクタ対象
                     choices_ = {
                         Choice{ "外に出ていく", 3 },
                         Choice{ "その場にとどまる", 4 }
@@ -61,6 +62,7 @@ void StoryScene::update(const Input& input)
 
 void StoryScene::draw(Renderer& renderer)
 {
+    // TODO:リファクタ後に座標、文言を整理する
     renderer.drawText(100, 400, script_[scriptIndex_]);
 
     if (state_ == StoryState::Choosing)
@@ -77,6 +79,7 @@ void StoryScene::draw(Renderer& renderer)
 
 void StoryScene::drawChoosing(Renderer& renderer)
 {
+    // TODO:リファクタ後に座標、文言を整理する
     const int x = 100;
     const int y = 450;
     const int lineHeight = 30;

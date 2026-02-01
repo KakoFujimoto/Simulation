@@ -9,6 +9,7 @@ class Input;
 class EndingScene : public Scene
 {
 public:
+	void onEnter() override;
 	void update(const Input& input) override;
 	void draw(Renderer& renderer) override;
 

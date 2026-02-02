@@ -107,7 +107,7 @@ void StoryScene::updateChoosing(const Input& input)
 
     if (input.isTriggered(GameKey::Decide))
     {
-        scriptIndex_ = choices_[cursorIndex_].nextStoryIndex;
+        scriptIndex_ = choices_[cursorIndex_].nextNodeId;
         state_ = StoryState::ShowingText;
     }
 }

@@ -2,7 +2,7 @@
 #include "Scene/Scene.h"
 #include "GameConfig.h"
 #include "StoryState.h"
-#include "Choice.h"
+#include "Story/StoryData.h"
 #include <string>
 #include <vector>
 #include <array>

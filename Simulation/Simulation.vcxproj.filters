@@ -33,6 +33,7 @@
     <ClCompile Include="src\Scene\StoryScene.cpp" />
     <ClCompile Include="src\Scene\Scene.cpp" />
     <ClCompile Include="src\UI\TextInput.cpp" />
+    <ClCompile Include="src\Story\StoryData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\System\GameManager.h">
@@ -58,5 +59,6 @@
     <ClInclude Include="src\UI\TextInput.h" />
     <ClInclude Include="src\Scene\StoryState.h" />
     <ClInclude Include="src\Scene\Choice.h" />
+    <ClInclude Include="src\Story\StoryData.h" />
   </ItemGroup>
 </Project>

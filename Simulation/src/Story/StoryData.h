@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -6,7 +6,7 @@
 struct Choice
 {
 	std::string text;
-	int nextNodeId;
+	std::string nextNodeId;
 };
 
 struct ScriptNode

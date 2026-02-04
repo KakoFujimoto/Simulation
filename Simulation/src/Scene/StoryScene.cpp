@@ -31,17 +31,22 @@ void StoryScene::update(const Input& input)
         {
             end();
         }
+        return;
     }
 
     // 選択肢がある場合
     if (input.isTriggered(GameKey::Up))
     {
-        choiceIndex_ = (choiceIndex_ - 1 + currentNode_->choices.size()) % currentNode_->choices.size();
+        choiceIndex_ =
+            (choiceIndex_ - 1 + currentNode_->choices.size())
+            % currentNode_->choices.size();
     }
 
     if (input.isTriggered(GameKey::Down))
     {
-        choiceIndex_ = (choiceIndex_ + 1) % currentNode_->choices.size();
+        choiceIndex_ =
+            (choiceIndex_ + 1)
+            % currentNode_->choices.size();
     }
 
     if (input.isTriggered(GameKey::Decide))
@@ -137,8 +142,8 @@ StoryData StoryScene::createStory()
         "start",
         "ここは静かな部屋だ。",
         {
-            { "外に出る", "go_out" },
-            { "その場にとどまる" "stay" }
+            { "外に出る","go_out" },
+            { "その場にとどまる" ,"stay" }
         }
     });
 

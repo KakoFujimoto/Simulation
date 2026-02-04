@@ -58,7 +58,6 @@
     <ClInclude Include="src\Scene\EndingScene.h" />
     <ClInclude Include="src\UI\TextInput.h" />
     <ClInclude Include="src\Scene\StoryState.h" />
-    <ClInclude Include="src\Scene\Choice.h" />
     <ClInclude Include="src\Story\StoryData.h" />
   </ItemGroup>
 </Project>

@@ -27,6 +27,7 @@
     <ClCompile Include="src\Scene\StoryScene.cpp" />
     <ClCompile Include="src\Scene\TitleScene.cpp" />
     <ClCompile Include="src\Story\StoryData.cpp" />
+    <ClCompile Include="src\Story\StoryLoader.cpp" />
     <ClCompile Include="src\System\GameManager.cpp" />
     <ClCompile Include="src\UI\Input.cpp" />
     <ClCompile Include="src\UI\TextInput.cpp" />
@@ -43,6 +44,7 @@
     <ClInclude Include="src\Scene\StoryState.h" />
     <ClInclude Include="src\Scene\TitleScene.h" />
     <ClInclude Include="src\Story\StoryData.h" />
+    <ClInclude Include="src\Story\StoryLoader.h" />
     <ClInclude Include="src\System\GameManager.h" />
     <ClInclude Include="src\UI\Input.h" />
     <ClInclude Include="src\UI\GameKey.h" />

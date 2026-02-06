@@ -4,6 +4,7 @@
 #include "Graphic/Renderer.h"
 #include "GameConfig.h"
 #include "GameMessage.h"
+#include "Story/StoryLoader.h"
 
 
 void StoryScene::onEnter()
@@ -114,50 +115,24 @@ void StoryScene::updateChoices(const Input& input)
         currentNode_ = storyData_.getNode(choice.nextNodeId);
         cursorIndex_ = 0;
     }
-
-    //if (input.isTriggered(GameKey::Up) ||
-    //    input.isTriggered(GameKey::Down))
-    //{
-    //    cursorIndex_ = (cursorIndex_ + 1) % 2;
-    //}
-
-    //if (input.isTriggered(GameKey::Decide))
-    //{
-    //    scriptIndex_ = choices_[cursorIndex_].nextNodeId;
-    //    state_ = StoryState::ShowingText;
-    //}
 }
-
-//bool StoryScene::hasChoice() const
-//{
-//    return !currentNode_->choices.empty();
-//    //return scriptIndex_ == 2;
-//}
 
 StoryData StoryScene::createStory()
 {
-    StoryData data;
+    const std::string scenario = R"(
 
-    data.addNode({
-        "start",
-        "ここは静かな部屋だ。",
-        {
-            { "外に出る","go_out" },
-            { "その場にとどまる" ,"stay" }
-        }
-    });
+[node start]
+text=ここは静かな部屋だ。
+choice=外に出る,go_out
+choice=その場にとどまる,stay
 
-    data.addNode({
-        "go_out",
-        "あなたは外に出た。",
-        {}
-    });
+[node go_out]
+text=あなたは外に出た。
 
-    data.addNode({
-        "stay",
-        "あなたはその場にとどまった。",
-        {}
-    });
+[node stay]
+text=あなたはその場にとどまった。
 
-    return data;
+)";
+
+    return StoryLoader::LoadFromString(scenario);
 }

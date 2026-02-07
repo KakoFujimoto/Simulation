@@ -13,8 +13,8 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::vector<Choice> currentChoices;
 
     const std::string  NodePrefix = "[node ";
-    const std::string  TextPrefix = "text";
-    const std::string  ChoicePrefix = "choice";
+    const std::string  TextPrefix = "text=";
+    const std::string  ChoicePrefix = "choice=";
 
     auto flushNode = [&]()
         {
@@ -46,7 +46,7 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
                 NodePrefix.size(),
                 end - NodePrefix.size());
         }
-        else if (line.rfind(NodePrefix.size(), 0) == 0)
+        else if (line.rfind(TextPrefix, 0) == 0)
         {
             currentText = line.substr(TextPrefix.size());
         }

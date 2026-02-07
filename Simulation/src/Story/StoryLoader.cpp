@@ -12,6 +12,10 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::string currentText;
     std::vector<Choice> currentChoices;
 
+    const std::string  NodePrefix = "[node ";
+    const std::string  TextPrefix = "text";
+    const std::string  ChoicePrefix = "choice";
+
     auto flushNode = [&]()
         {
             if (currentNodeId.empty())
@@ -33,20 +37,22 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
         if (line.empty())
             continue;
 
-        if (line.rfind("[node ", 0) == 0)
+        if (line.rfind(NodePrefix, 0) == 0)
         {
             flushNode();
 
             auto end = line.find(']');
-            currentNodeId = line.substr(6, end - 6);
+            currentNodeId = line.substr(
+                NodePrefix.size(),
+                end - NodePrefix.size());
         }
-        else if (line.rfind("text=", 0) == 0)
+        else if (line.rfind(NodePrefix.size(), 0) == 0)
         {
-            currentText = line.substr(5);
+            currentText = line.substr(TextPrefix.size());
         }
-        else if (line.rfind("choice=", 0) == 0)
+        else if (line.rfind(ChoicePrefix, 0) == 0)
         {
-            auto body = line.substr(7);
+            auto body = line.substr(ChoicePrefix.size());
             auto comma = body.find(',');
 
             Choice choice;

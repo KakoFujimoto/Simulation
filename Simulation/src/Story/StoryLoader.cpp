@@ -11,7 +11,7 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::string line;
 
     std::string currentNodeId;
-    std::string currentText;
+    std::vector<std::string> currentTexts;
     std::vector<Choice> currentChoices;
 
     const std::string  NodePrefix = "[node ";
@@ -25,12 +25,12 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
 
             data.addNode({
                 currentNodeId,
-                currentText,
+                currentTexts,
                 currentChoices
                 });
 
             currentNodeId.clear();
-            currentText.clear();
+            currentTexts.clear();
             currentChoices.clear();
         };
 
@@ -50,7 +50,7 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
         }
         else if (line.rfind(TextPrefix, 0) == 0)
         {
-            currentText = line.substr(TextPrefix.size());
+            currentTexts.push_back(line.substr(TextPrefix.size()));
         }
         else if (line.rfind(ChoicePrefix, 0) == 0)
         {

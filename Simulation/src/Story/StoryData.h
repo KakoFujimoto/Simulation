@@ -12,7 +12,7 @@ struct Choice
 struct ScriptNode
 {
 	std::string id;
-	std::string text;
+	std::vector<std::string> texts;
 	std::vector<Choice> choices;
 };
 

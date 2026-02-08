@@ -65,14 +65,26 @@ void StoryScene::draw(Renderer& renderer)
         return;
     }
 
-    renderer.drawText(100, 100, currentNode_->text);
+    // textを1行ずつ描画
+    // TODO:マジックナンバーはのちほど手をつける
+    int y = 100;
+    const int lineHeight = 20;
+
+    for (const auto& line : currentNode_->texts)
+    {
+        renderer.drawText(100, y, line);
+        y += lineHeight;
+    }
+
+    // 選択肢はtextsの下に描画
+    y += 10;
 
     for (size_t i = 0; i < currentNode_->choices.size(); ++i)
     {
         std::string prefix = (i == choiceIndex_) ? ">" : "";
         renderer.drawText(
             120,
-            150 + static_cast<int>(i) * 20,
+            y + static_cast<int>(i) * lineHeight,
             prefix + currentNode_->choices[i].text
         );
     }

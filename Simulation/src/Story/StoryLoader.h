@@ -5,4 +5,5 @@ class StoryLoader
 {
 public:
 	static StoryData LoadFromString(const std::string& text);
+	static StoryData LoadFromFile(const std::string& path);
 };

@@ -4,7 +4,7 @@
 
 SceneManager::SceneManager()
 {
-	currentScene_ = &titleScene;
+	changeScene(SceneId::Title);
 }
 
 void SceneManager::update(const Input& input)

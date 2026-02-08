@@ -1,5 +1,7 @@
 ﻿#include "StoryLoader.h"
 #include <sstream>
+#include <fstream>
+#include <cassert>
 
 StoryData StoryLoader::LoadFromString(const std::string& text)
 {
@@ -65,4 +67,20 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
 
     flushNode();
     return data;
+}
+
+StoryData StoryLoader::LoadFromFile(const std::string& path)
+{
+    std::ifstream file(path);
+    if (!file)
+    {
+        assert(false && "story.story が見つかりません");
+        return {};
+    }
+
+    std::ostringstream buffer;
+    buffer << file.rdbuf();
+    const std::string text = buffer.str();
+
+    return LoadFromString(text);
 }

@@ -119,20 +119,6 @@ void StoryScene::updateChoices(const Input& input)
 
 StoryData StoryScene::createStory()
 {
-    const std::string scenario = R"(
 
-[node start]
-text=ここは静かな部屋だ。
-choice=外に出る,go_out
-choice=その場にとどまる,stay
-
-[node go_out]
-text=あなたは外に出た。
-
-[node stay]
-text=あなたはその場にとどまった。
-
-)";
-
-    return StoryLoader::LoadFromString(scenario);
+    return StoryLoader::LoadFromFile("data/story.story");
 }

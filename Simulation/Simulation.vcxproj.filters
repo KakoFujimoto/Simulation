@@ -62,4 +62,8 @@
     <ClInclude Include="src\Story\StoryData.h" />
     <ClInclude Include="src\Story\StoryLoader.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="src\data\story.story" />
+    <None Include="data\story.story" />
+  </ItemGroup>
 </Project>

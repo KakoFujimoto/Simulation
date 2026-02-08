@@ -24,12 +24,6 @@ private:
 	int choiceIndex_ = 0;
 	StoryState state_ = StoryState::ShowingText;
 
-	//bool hasChoice() const;
-
-	//int scriptIndex_ = 0;
-	//std::vector<std::string> script_;
-
-	//std::array<Choice, 2> choices_;
 	int cursorIndex_ = 0;
 
 	void updateChoices(const Input& input);

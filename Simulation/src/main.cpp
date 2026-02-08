@@ -3,6 +3,7 @@
 
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
+    SetUseCharCodeFormat(DX_CHARCODEFORMAT_UTF8);
     ChangeWindowMode(TRUE);
     SetGraphMode(800, 700, 32);
     DxLib_Init();

@@ -50,6 +50,10 @@
     <ClInclude Include="src\UI\GameKey.h" />
     <ClInclude Include="src\UI\TextInput.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\story.story" />
+    <None Include="src\data\story.story" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

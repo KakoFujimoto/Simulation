@@ -16,6 +16,11 @@ struct ScriptNode
 	std::vector<Choice> choices;
 };
 
+struct StoryFlags
+{
+	bool readMemo = false;
+};
+
 class StoryData
 {
 public:

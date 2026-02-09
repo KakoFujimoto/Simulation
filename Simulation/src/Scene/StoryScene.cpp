@@ -5,6 +5,7 @@
 #include "GameConfig.h"
 #include "GameMessage.h"
 #include "Story/StoryLoader.h"
+#include "Story/StoryData.h"
 
 
 void StoryScene::onEnter()
@@ -25,6 +26,11 @@ void StoryScene::update(const Input& input)
         return;
     }
 
+    if (currentNode_->id != previousNodeId_)
+    {
+        onEnterNode(currentNode_->id);
+        previousNodeId_ = currentNode_->id;
+    }
     if (currentNode_->choices.empty())
     {
         // 選択肢なし→Zで次へ
@@ -133,4 +139,12 @@ StoryData StoryScene::createStory()
 {
 
     return StoryLoader::LoadFromFile("data/story.story");
+}
+
+void StoryScene::onEnterNode(const std::string& nodeId)
+{
+    if (nodeId == "bed_check")
+    {
+        storyFlags_.readMemo = true;
+    }
 }

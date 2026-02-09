@@ -21,13 +21,14 @@ public:
 private:
 	StoryData storyData_;
 	const ScriptNode* currentNode_ = nullptr;
+	StoryFlags storyFlags_;
 	int choiceIndex_ = 0;
 	StoryState state_ = StoryState::ShowingText;
-
 	int cursorIndex_ = 0;
+	std::string previousNodeId_;
 
 	void updateChoices(const Input& input);
 	void drawChoices(Renderer& renderer);
-
 	StoryData createStory();
+	void onEnterNode(const std::string& nodeId);
 };

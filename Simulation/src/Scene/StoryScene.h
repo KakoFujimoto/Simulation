@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <array>
+#include <unordered_map>
 
 
 class Renderer;
@@ -21,7 +22,8 @@ public:
 private:
 	StoryData storyData_;
 	const ScriptNode* currentNode_ = nullptr;
-	StoryFlags storyFlags_;
+	std::unordered_map<std::string, bool> storyFlags_;
+
 	int choiceIndex_ = 0;
 	StoryState state_ = StoryState::ShowingText;
 	int cursorIndex_ = 0;
@@ -30,5 +32,5 @@ private:
 	void updateChoices(const Input& input);
 	void drawChoices(Renderer& renderer);
 	StoryData createStory();
-	void onEnterNode(const std::string& nodeId);
+	void onEnterNode(const ScriptNode& node);
 };

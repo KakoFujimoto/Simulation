@@ -28,7 +28,7 @@ void StoryScene::update(const Input& input)
 
     if (currentNode_->id != previousNodeId_)
     {
-        onEnterNode(currentNode_->id);
+        onEnterNode(*currentNode_);
         previousNodeId_ = currentNode_->id;
     }
     if (currentNode_->choices.empty())
@@ -141,10 +141,12 @@ StoryData StoryScene::createStory()
     return StoryLoader::LoadFromFile("data/story.story");
 }
 
-void StoryScene::onEnterNode(const std::string& nodeId)
+void StoryScene::onEnterNode(const ScriptNode& node)
 {
-    if (nodeId == "bed_check")
+    currentNode_ = &node;
+
+    if (!node.setFlag.empty())
     {
-        storyFlags_.readMemo = true;
+        storyFlags_[node.setFlag] = true;
     }
 }

@@ -14,9 +14,12 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::vector<std::string> currentTexts;
     std::vector<Choice> currentChoices;
 
-    const std::string  NodePrefix = "[node ";
-    const std::string  TextPrefix = "text=";
-    const std::string  ChoicePrefix = "choice=";
+    std::string currentSetFlag;
+
+    const std::string NodePrefix = "[node ";
+    const std::string TextPrefix = "text=";
+    const std::string ChoicePrefix = "choice=";
+    const std::string SetFlagPrefix = "setflag=";
 
     auto flushNode = [&]()
         {
@@ -26,12 +29,14 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
             data.addNode({
                 currentNodeId,
                 currentTexts,
-                currentChoices
+                currentChoices,
+                currentSetFlag
                 });
 
             currentNodeId.clear();
             currentTexts.clear();
             currentChoices.clear();
+            currentSetFlag.clear();
         };
 
     while (std::getline(stream, line))
@@ -62,6 +67,10 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
             choice.nextNodeId = body.substr(comma + 1);
 
             currentChoices.push_back(choice);
+        }
+        else if (line.rfind(SetFlagPrefix, 0) == 0)
+        {
+            currentSetFlag = line.substr(SetFlagPrefix.size());
         }
     }
 

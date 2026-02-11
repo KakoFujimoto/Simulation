@@ -145,6 +145,25 @@ void StoryScene::onEnterNode(const ScriptNode& node)
 {
     currentNode_ = &node;
 
+    if (!node.ifFlag.empty())
+    {
+        if (storyFlags_[node.ifFlag])
+        {
+            auto* next = storyData_.getNode(node.ifFlagNextNode);
+            if (next)
+            {
+                currentNode_ = next;
+                onEnterNode(*next);
+                return;
+            }
+        }
+
+        if (!node.setFlag.empty())
+        {
+            storyFlags_[node.setFlag] = true;
+        }
+    }
+
     if (!node.setFlag.empty())
     {
         storyFlags_[node.setFlag] = true;

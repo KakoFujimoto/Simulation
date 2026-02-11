@@ -13,13 +13,15 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::string currentNodeId;
     std::vector<std::string> currentTexts;
     std::vector<Choice> currentChoices;
-
     std::string currentSetFlag;
+    std::string currentIfFlag;
+    std::string currentIfFlagNextNode;
 
     const std::string NodePrefix = "[node ";
     const std::string TextPrefix = "text=";
     const std::string ChoicePrefix = "choice=";
     const std::string SetFlagPrefix = "setflag=";
+    const std::string IfFlagPrefix = "ifflag=";
 
     auto flushNode = [&]()
         {
@@ -30,13 +32,17 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
                 currentNodeId,
                 currentTexts,
                 currentChoices,
-                currentSetFlag
+                currentSetFlag,
+                currentIfFlag,
+                currentIfFlagNextNode
                 });
 
             currentNodeId.clear();
             currentTexts.clear();
             currentChoices.clear();
             currentSetFlag.clear();
+            currentIfFlag.clear();
+            currentIfFlagNextNode.clear();
         };
 
     while (std::getline(stream, line))
@@ -71,6 +77,14 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
         else if (line.rfind(SetFlagPrefix, 0) == 0)
         {
             currentSetFlag = line.substr(SetFlagPrefix.size());
+        }
+        else if (line.rfind(IfFlagPrefix, 0) == 0)
+        {
+            auto body = line.substr(IfFlagPrefix.size());
+            auto comma = body.find(',');
+
+            currentIfFlag = body.substr(0, comma);
+            currentIfFlagNextNode = body.substr(comma + 1);
         }
     }
 

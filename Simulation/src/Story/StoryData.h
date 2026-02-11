@@ -14,7 +14,10 @@ struct ScriptNode
 	std::string id;
 	std::vector<std::string> texts;
 	std::vector<Choice> choices;
+
 	std::string setFlag;
+	std::string ifFlag;
+	std::string ifFlagNextNode;
 };
 
 struct StoryFlags

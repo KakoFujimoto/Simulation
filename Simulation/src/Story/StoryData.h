@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <optional>
+
 
 struct Choice
 {
@@ -14,6 +16,7 @@ struct ScriptNode
 	std::string id;
 	std::vector<std::string> texts;
 	std::vector<Choice> choices;
+	std::optional<std::string> endingType;
 
 	std::string setFlag;
 	std::string ifFlag;

@@ -12,6 +12,7 @@ void StoryScene::onEnter()
 {
     Scene::onEnter();
 
+    storyFlags_.clear();
     storyData_ = createStory();
     currentNode_ = storyData_.getNode("start");
     choiceIndex_ = 0;

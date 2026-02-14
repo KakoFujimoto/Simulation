@@ -16,12 +16,14 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
     std::string currentSetFlag;
     std::string currentIfFlag;
     std::string currentIfFlagNextNode;
+    std::optional<std::string> currentEndingType;
 
     const std::string NodePrefix = "[node ";
     const std::string TextPrefix = "text=";
     const std::string ChoicePrefix = "choice=";
     const std::string SetFlagPrefix = "setflag=";
     const std::string IfFlagPrefix = "ifflag=";
+    const std::string EndPrefix = "end=";
 
     auto flushNode = [&]()
         {
@@ -32,6 +34,7 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
                 currentNodeId,
                 currentTexts,
                 currentChoices,
+                currentEndingType,
                 currentSetFlag,
                 currentIfFlag,
                 currentIfFlagNextNode
@@ -43,6 +46,7 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
             currentSetFlag.clear();
             currentIfFlag.clear();
             currentIfFlagNextNode.clear();
+            currentEndingType.reset();
         };
 
     while (std::getline(stream, line))
@@ -85,6 +89,10 @@ StoryData StoryLoader::LoadFromString(const std::string& text)
 
             currentIfFlag = body.substr(0, comma);
             currentIfFlagNextNode = body.substr(comma + 1);
+        }
+        else if (line.rfind(EndPrefix, 0) == 0)
+        {
+            currentEndingType = line.substr(EndPrefix.size());
         }
     }
 

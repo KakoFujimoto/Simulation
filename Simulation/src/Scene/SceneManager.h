@@ -15,6 +15,7 @@ public:
 	void update(const Input& input);
 	void draw(Renderer& renderer);
 	void changeScene(SceneId id);
+	EndingScene& getEndingScene();
 
 private:
 	TitleScene titleScene;

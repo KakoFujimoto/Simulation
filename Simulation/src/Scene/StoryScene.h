@@ -33,4 +33,5 @@ private:
 	void drawChoices(Renderer& renderer);
 	StoryData createStory();
 	void onEnterNode(const ScriptNode& node);
+	void end() override;
 };

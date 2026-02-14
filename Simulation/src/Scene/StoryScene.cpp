@@ -6,6 +6,7 @@
 #include "GameMessage.h"
 #include "Story/StoryLoader.h"
 #include "Story/StoryData.h"
+#include "Scene/SceneManager.h"
 
 
 void StoryScene::onEnter()
@@ -164,9 +165,21 @@ void StoryScene::onEnterNode(const ScriptNode& node)
             storyFlags_[node.setFlag] = true;
         }
     }
+}
 
-    if (!node.setFlag.empty())
+void StoryScene::end()
+{
+    if (!currentNode_)
+        return;
+
+    if (currentNode_->endingType.has_value())
     {
-        storyFlags_[node.setFlag] = true;
+        sceneManager_->getEndingScene()
+            .setEndingType(currentNode_->endingType.value());
+
+        sceneManager_->changeScene(SceneId::Ending);
+        return;
     }
+
+    Scene::end();
 }

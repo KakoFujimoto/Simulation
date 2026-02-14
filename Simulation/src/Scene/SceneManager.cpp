@@ -3,7 +3,11 @@
 #include "UI/Input.h"
 
 SceneManager::SceneManager()
-{
+{	
+	titleScene.setSceneManager(this);
+	storyScene.setSceneManager(this);
+	endingScene.setSceneManager(this);
+
 	changeScene(SceneId::Title);
 }
 
@@ -51,4 +55,9 @@ void SceneManager::changeScene(SceneId id)
 		return;
 	}
 	currentScene_ -> onEnter();
+}
+
+EndingScene& SceneManager::getEndingScene()
+{
+	return endingScene;
 }

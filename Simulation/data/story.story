@@ -103,19 +103,30 @@ text=そして犯人は——自分だ。
 choice=扉を開ける,true_end
 choice=まだ調べる,look_room
 
-[node normal_end]
-text=あなたは部屋を後にした。
-text=しかし真実を知らないまま。
-text=——胸に重たい何かを抱えながら。
-choice=タイトルへ,start
 
+; =========================
+; BAD END
+; =========================
 [node bad_end]
 text=あなたは暗闇へ足を踏み出した。
 text=次の瞬間、足元が崩れる。
 text=——罠だった。
-text=END：軽率な脱出
-choice=タイトルへ,start
+end=Bad
 
+
+; =========================
+; NORMAL END
+; =========================
+[node normal_end]
+text=あなたは部屋を後にした。
+text=しかし真実を知らないまま。
+text=——胸に重たい何かを抱えながら。
+end=Normal
+
+
+; =========================
+; TRUE END
+; =========================
 [node true_end]
 text=写真、血痕、メモ……
 text=全ては一つの真実を指している。
@@ -123,5 +134,4 @@ text=ここは事件現場だ。
 text=あなたは記憶を失っていただけだった。
 text=扉を開ける。
 text=そこに待っていたのは、警察だった。
-text=END：真実への帰還
-choice=タイトルへ,start
+end=True

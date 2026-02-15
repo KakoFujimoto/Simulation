@@ -147,10 +147,6 @@ void StoryScene::onEnterNode(const ScriptNode& node)
 {
     currentNode_ = &node;
 
-    if (!node.setFlag.empty())
-    {
-        storyFlags_[node.setFlag] = true;
-    }
     if (!node.ifFlag.empty())
     {
         if (storyFlags_[node.ifFlag])
@@ -163,6 +159,10 @@ void StoryScene::onEnterNode(const ScriptNode& node)
                 return;
             }
         }
+    }
+    if (!node.setFlag.empty())
+    {
+        storyFlags_[node.setFlag] = true;
     }
 }
 

@@ -1,28 +1,58 @@
 [node start]
 ifflag=realizedTruth,true_end
 text=……目が覚めた。
+text=頭が重い。喉が渇いている。
 text=見知らぬ部屋。扉は閉ざされている。
 choice=部屋を見回す,look_room
 choice=扉を調べる,door
+choice=自分の状態を確認する,self_check
+
+; ===================================
+; 自分確認
+; ===================================
+
+[node self_check]
+text=手が震えている。
+text=爪の間に赤黒いものがこびりついている。
+setflag=noticedHands
+choice=部屋を見る,look_room
+choice=戻る,start
+
+; ===================================
+; 部屋探索
+; ===================================
 
 [node look_room]
-text=部屋には机、ベッド、そして小さな窓がある。
+text=部屋には机、ベッド、窓、本棚がある。
 choice=机を調べる,desk
 choice=ベッドを調べる,bed
 choice=窓を調べる,window
-choice=考える,think
+choice=本棚を調べる,bookshelf
+choice=考える,think_check
 choice=戻る,start
 
+; ===================================
+; 机
+; ===================================
+
 [node desk]
-text=机の上には古びた写真が置かれている。
-text=……写っているのは、自分？
-text=しかし背景はこの部屋ではない。
+text=古びた写真が置かれている。
+text=自分と、もう一人の男が写っている。
+setflag=sawPhoto
+choice=写真の裏を見る,photo_back
 choice=引き出しを開ける,drawer
 choice=戻る,look_room
 
+[node photo_back]
+text=裏には日付と住所。
+text=——この部屋の住所だ。
+setflag=checkedPhotoBack
+choice=戻る,desk
+
 [node drawer]
 ifflag=foundKey,drawer_after
-text=引き出しの中には小さな鍵が入っている。
+text=引き出しを開ける。
+text=中に小さな鍵が入っている。
 setflag=foundKey
 text=鍵を手に入れた。
 choice=戻る,desk
@@ -31,107 +61,141 @@ choice=戻る,desk
 text=引き出しは空だ。
 choice=戻る,desk
 
+; ===================================
+; 本棚
+; ===================================
+
+[node bookshelf]
+ifflag=foundDiary,bookshelf_after
+text=本棚には雑誌と一冊の日記帳。
+setflag=foundDiary
+text=日記を手に取る。
+choice=読む,read_diary
+choice=戻る,look_room
+
+[node bookshelf_after]
+text=日記の存在が頭から離れない。
+choice=戻る,look_room
+
+[node read_diary]
+text=『あいつは全てを奪った』
+text=『計画は今夜実行する』
+setflag=readDiary
+choice=戻る,look_room
+
+; ===================================
+; ベッド
+; ===================================
+
 [node bed]
 ifflag=readMemo,bed_after
-text=ベッドの下に何か落ちている。
+text=ベッドの下に何かある。
 setflag=readMemo
-text=一枚のメモだ。
-text=「真実から目を逸らすな」
+text=メモだ。
+text=『真実から目を逸らすな』
 choice=戻る,look_room
 
 [node bed_after]
-text=ベッドの下にはもう何もない。
+text=何もない。
 choice=戻る,look_room
+
+; ===================================
+; 窓
+; ===================================
 
 [node window]
 ifflag=sawBlood,window_after
-text=窓は固く閉ざされている。
-text=窓枠に赤黒い染みがある。
+text=窓枠に赤黒い染み。
 setflag=sawBlood
 text=……血？
 choice=戻る,look_room
 
 [node window_after]
-text=乾いた血痕が残っている。
+text=乾いた血痕。
 choice=戻る,look_room
+
+; ===================================
+; 扉
+; ===================================
 
 [node door]
 ifflag=foundKey,unlock_door
-text=扉は固く閉ざされている。
 text=鍵が必要だ。
 choice=戻る,start
 
 [node unlock_door]
-text=鍵を差し込み、ゆっくり回す。
-text=カチリ、と音がする。
+text=鍵を差し込む。
+text=重い音がして錠が外れた。
 choice=扉を開ける,exit_attempt
 choice=戻る,start
 
-[node exit_attempt]
-ifflag=sawBlood,truth_hint
-text=扉の向こうは暗闇だ。
-choice=外へ出る,bad_end
-choice=部屋に戻る,start
+; ===================================
+; 思考チェック（破綻しない段階式）
+; ===================================
 
-[node truth_hint]
-text=血痕のことが頭をよぎる。
-text=……この部屋で何があった？
-choice=もう一度部屋を調べる,look_room
-choice=外へ出る,normal_end
-
-[node think]
-text=集めた情報を整理する。
-ifflag=readMemo,check_blood
-text=まだ手がかりが足りない気がする。
+[node think_check]
+ifflag=noticedHands,think_stage1
+text=まだ材料が足りない気がする。
 choice=戻る,look_room
 
-[node check_blood]
-ifflag=sawBlood,check_key
-text=何か重要なものを見落としている。
+[node think_stage1]
+ifflag=sawPhoto,think_stage2
+text=手の汚れが気になる。
 choice=戻る,look_room
 
-[node check_key]
-ifflag=foundKey,truth_realize
-text=鍵……？
+[node think_stage2]
+ifflag=readDiary,think_stage3
+text=写真の男の存在が引っかかる。
 choice=戻る,look_room
+
+[node think_stage3]
+ifflag=sawBlood,truth_realize
+text=計画という言葉が頭をよぎる。
+choice=戻る,look_room
+
+; ===================================
+; 真相
+; ===================================
 
 [node truth_realize]
 setflag=realizedTruth
 text=全てが繋がった。
-text=この部屋は事件現場。
-text=そして犯人は——自分だ。
+text=写真の男は被害者。
+text=復讐は実行された。
+text=そして実行したのは——自分。
 choice=扉を開ける,true_end
-choice=まだ調べる,look_room
+choice=目を背ける,normal_end
 
+; ===================================
+; EXIT
+; ===================================
 
-; =========================
-; BAD END
-; =========================
+[node exit_attempt]
+ifflag=realizedTruth,true_end
+text=闇へ踏み出す。
+choice=外へ出る,bad_end
+choice=考え直す,look_room
+
+; ===================================
+; ENDINGS
+; ===================================
+
 [node bad_end]
-text=あなたは暗闇へ足を踏み出した。
-text=次の瞬間、足元が崩れる。
+text=あなたは闇へ消えた。
+text=次の瞬間、足場が崩れる。
 text=——罠だった。
 end=Bad
 
-
-; =========================
-; NORMAL END
-; =========================
 [node normal_end]
 text=あなたは部屋を後にした。
-text=しかし真実を知らないまま。
-text=——胸に重たい何かを抱えながら。
+text=だが真実から目を背けた。
+text=罪は、追いかけてくる。
 end=Normal
 
-
-; =========================
-; TRUE END
-; =========================
 [node true_end]
-text=写真、血痕、メモ……
-text=全ては一つの真実を指している。
-text=ここは事件現場だ。
-text=あなたは記憶を失っていただけだった。
-text=扉を開ける。
-text=そこに待っていたのは、警察だった。
+text=扉の向こうに待っていたのは警察だった。
+text=あなたは静かに手を差し出す。
+text=全てを思い出した。
+text=逃げない。
+text=これが、自分の選んだ結末だ。
 end=True
